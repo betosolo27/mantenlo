@@ -1,4 +1,4 @@
-# MANTENLO V1.8.1 — MVP conectado a Supabase
+# MANTENLO V1.8.2 — MVP conectado a Supabase
 
 Esta versión es una **PWA** (Progressive Web App): se abre en navegador, funciona en celular y puede instalarse como aplicación. Es un prototipo funcional para validar la idea y presentar el concepto. **Ya usa Supabase como base de datos compartida entre dispositivos.** Todavía no incluye pagos reales, mapas/GPS reales ni autenticación de cuentas.
 
@@ -70,5 +70,9 @@ Esta versión es un **MVP demostrable**, no todavía un sistema de producción. 
 - Al finalizar, vuelve al inicio sin borrar el historial de Supabase.
 
 
-## V1.8.1
+## V1.8.2
 Los problemas del menú Cliente ahora cambian según la categoría seleccionada. La opción Otro abre descripción libre y Boiler incluye aviso preventivo ante olor/fuga de gas.
+
+
+## V1.8.2
+Corrección de selección de problemas por categoría en cliente.html.
