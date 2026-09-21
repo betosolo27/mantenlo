@@ -1,4 +1,4 @@
-# MANTENLO V1.6 — MVP conectado a Supabase
+# MANTENLO V1.8 — MVP conectado a Supabase
 
 Esta versión es una **PWA** (Progressive Web App): se abre en navegador, funciona en celular y puede instalarse como aplicación. Es un prototipo funcional para validar la idea y presentar el concepto. **Ya usa Supabase como base de datos compartida entre dispositivos.** Todavía no incluye pagos reales, mapas/GPS reales ni autenticación de cuentas.
 
@@ -40,7 +40,7 @@ La opción más sencilla para un principiante es Netlify Drop:
 También puedes subirla a GitHub Pages, Cloudflare Pages o Vercel.
 
 ## Importante sobre esta versión
-Esta V1 es un **MVP demostrable**, no todavía un sistema de producción. Para producción debemos agregar:
+Esta versión es un **MVP demostrable**, no todavía un sistema de producción. Para producción debemos agregar:
 - Base de datos central (Supabase/PostgreSQL u otra).
 - Autenticación real.
 - Roles y permisos seguros.
@@ -60,3 +60,11 @@ Esta V1 es un **MVP demostrable**, no todavía un sistema de producción. Para p
 3. El socio puede aceptarla.
 4. Abre `admin.html`; el administrador verá la solicitud y su estado.
 5. El flujo puede repetirse para demostrar el concepto.
+
+
+## V1.8
+- Calificación real de 1 a 5 estrellas.
+- Comentario opcional.
+- Guarda la evaluación en `ratings`.
+- Intenta recalcular el promedio del socio en `partners`.
+- Al finalizar, vuelve al inicio sin borrar el historial de Supabase.
