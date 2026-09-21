@@ -1,6 +1,6 @@
-# MANTENLO V1 — MVP demostrable
+# MANTENLO V1.6 — MVP conectado a Supabase
 
-Esta versión es una **PWA** (Progressive Web App): se abre en navegador, funciona en celular y puede instalarse como aplicación. Es un prototipo funcional para validar la idea y presentar el concepto. **No usa todavía un servidor real, pagos reales, mapas reales ni cuentas reales.** Los datos se guardan en `localStorage` del navegador.
+Esta versión es una **PWA** (Progressive Web App): se abre en navegador, funciona en celular y puede instalarse como aplicación. Es un prototipo funcional para validar la idea y presentar el concepto. **Ya usa Supabase como base de datos compartida entre dispositivos.** Todavía no incluye pagos reales, mapas/GPS reales ni autenticación de cuentas.
 
 ## Archivos
 - `cliente.html` — aplicación del cliente.
