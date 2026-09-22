@@ -38,3 +38,62 @@ button,input,textarea,select{font:inherit}button{border:0;cursor:pointer;-webkit
 @media(max-width:800px){body{background:#fff}.top{min-height:64px;padding:10px 14px}.brand{font-size:21px}.links a{font-size:12px;padding:8px 10px}.wrap{padding:0}.phone{width:100%;max-width:none;min-height:calc(100dvh - 64px);border:0;border-radius:0;box-shadow:none}.main{width:100%;max-width:540px;margin:auto;padding:28px 20px calc(34px + env(safe-area-inset-bottom))}.dashboard{grid-template-columns:1fr}.side{height:auto;position:static;display:flex;overflow:auto}.cards{grid-template-columns:1fr 1fr}}
 @media(max-width:390px){.top{padding-left:10px;padding-right:10px;gap:7px}.brand{font-size:19px}.links a{padding:7px 8px;font-size:11px}.main{padding-left:17px;padding-right:17px}.grid{gap:9px}.service{padding:13px;gap:9px}.service .icon{width:42px;height:42px;flex-basis:42px}.slot-grid{grid-template-columns:1fr}.trust-row{gap:4px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+
+/* ===== MANTENLO target visual — 2026-09-21 ===== */
+.home-screen .main{padding-top:34px}
+.service-grid{gap:12px}
+.premium-service{
+  position:relative;align-items:center!important;min-height:112px;padding:15px 38px 15px 15px!important;
+  overflow:hidden;
+}
+.premium-service .service-icon{width:52px;height:52px;flex:0 0 52px;border-radius:17px}
+.premium-service .service-icon svg{width:29px;height:29px;stroke-width:2.35}
+.service-copy{min-width:0}
+.service-copy b{font-size:15px;line-height:1.15;color:#092846}
+.service-copy small{font-size:12px!important}
+.service-chevron{position:absolute;right:14px;width:19px;height:19px;color:#8190a4}
+.service-plomeria{color:#147bc2;background:#eaf5ff!important}
+.service-electricidad{color:#f2a900;background:#fff7df!important}
+.service-boiler{color:#f05b34;background:#fff0ed!important}
+.service-cerrajeria{color:#8053db;background:#f3edff!important}
+.service-aire{color:#4aa9e9;background:#ebf7ff!important}
+.service-otro{color:#667085;background:#f0f2f5!important}
+
+.house-banner{
+  min-height:132px;padding:0 18px 0 0;margin-top:20px;overflow:hidden;
+  background:linear-gradient(115deg,#e9f7ff 0%,#f7f4ff 52%,#fff4ec 100%);
+}
+.house-art{width:46%;align-self:stretch;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.house-art img{width:150px;max-width:115%;height:auto;display:block;filter:drop-shadow(0 8px 12px rgba(9,40,70,.10))}
+.house-copy{flex:1;padding:20px 0}
+.house-copy b{font-size:18px;line-height:1.15;color:#092846}
+.house-copy span{font-size:12px;line-height:1.45;margin-top:7px}
+
+.trust-row{margin:24px 0 4px;gap:4px}
+.trust-row div{display:flex;flex-direction:column;align-items:center}
+.trust-row svg{width:27px;height:27px;margin-bottom:8px;stroke-width:2.3}
+.trust-row b{font-size:11px;color:#15324f;line-height:1.2}
+.trust-row span{font-size:9px;line-height:1.35;color:#7b8798;margin-top:5px}
+
+.screen-heading .heading-icon{border:0;box-shadow:none}
+.screen-heading .heading-icon svg{width:30px;height:30px}
+.heading-icon.service-plomeria{color:#147bc2;background:#eaf5ff}
+.heading-icon.service-electricidad{color:#e9a400;background:#fff7df}
+.heading-icon.service-boiler{color:#ef5b34;background:#fff0ed}
+.heading-icon.service-cerrajeria{color:#8053db;background:#f3edff}
+.heading-icon.service-aire{color:#4aa9e9;background:#ebf7ff}
+.heading-icon.service-otro{color:#667085;background:#f0f2f5}
+.option.choice{padding:17px 18px;min-height:64px}
+.option.choice span{font-size:15px;font-weight:650;color:#193047}
+.option.choice svg{width:20px;height:20px}
+.option.choice.selected{background:#fffaf6}
+@media(max-width:390px){
+  .premium-service{padding-left:12px!important;padding-right:31px!important}
+  .premium-service .service-icon{width:45px;height:45px;flex-basis:45px}
+  .premium-service .service-icon svg{width:25px;height:25px}
+  .service-copy b{font-size:14px}
+  .house-banner{min-height:120px}
+  .house-art img{width:128px}
+  .house-copy b{font-size:16px}
+}
