@@ -21,6 +21,9 @@ async function saveServiceMedia(requestId,file,url){
   return rows&&rows[0];
 }
 async function getServiceMedia(requestId){return api('service_media?request_id=eq.'+encodeURIComponent(requestId)+'&select=*&order=created_at.asc')}
+async function getServiceMessages(requestId){return api('service_messages?request_id=eq.'+encodeURIComponent(requestId)+'&select=*&order=created_at.asc')}
+async function sendServiceMessage(requestId,senderType,message){const rows=await api('service_messages',{method:'POST',headers:{'Prefer':'return=representation'},body:JSON.stringify({request_id:requestId,sender_type:senderType,message:String(message||'').trim()})});return rows&&rows[0]}
+
 
 async function api(path,opts={}){const r=await fetch(SUPABASE_REST+'/'+path,{...opts,headers:{...headers,...(opts.headers||{})}});if(!r.ok){const t=await r.text();throw new Error(t||('HTTP '+r.status))}if(r.status===204)return null;const t=await r.text();return t?JSON.parse(t):null}
 async function getRequests(){return api('service_requests?select=*,partners(id,name,rating,jobs_completed,photo_url,years_experience,services_completed,specialty,certifications,verified)&order=created_at.desc')}
