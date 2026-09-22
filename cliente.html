@@ -60,7 +60,7 @@
 <style>
 .chat-card{margin:16px 0;padding:15px;border:1px solid #e2e9ef;border-radius:20px;background:#fff}.chat-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.chat-head b{display:flex;gap:7px;align-items:center;color:#173650;font-size:13px}.chat-head svg{width:18px;color:#147ac5}.chat-messages{max-height:220px;overflow:auto;display:flex;flex-direction:column;gap:8px}.chat-row{display:flex}.chat-row.mine{justify-content:flex-end}.chat-bubble{max-width:82%;padding:9px 11px;border-radius:15px;background:#f0f4f7;color:#17324c;font-size:12px}.chat-row.mine .chat-bubble{background:#0f2d55;color:#fff}.chat-meta{font-size:9px;opacity:.68;margin-top:4px}.chat-empty{padding:12px;background:#f7f9fb;border-radius:12px;text-align:center;color:#7a8797;font-size:11px}.chat-compose{display:grid;grid-template-columns:1fr 43px;gap:8px;margin-top:10px}.chat-input{min-width:0;border:1px solid #dce5ed;border-radius:14px;padding:11px;font:inherit;font-size:12px}.chat-send{border:0;border-radius:14px;background:#ff7417;color:#fff;display:grid;place-items:center}.chat-send svg{width:18px}
 </style></head><body><header class="top"><div class="brand">MANT<span>ENLO</span></div><nav class="links"><a class="active" href="cliente.html">Cliente</a><a href="socio.html">Socio</a><a href="admin.html">Admin</a></nav></header><div class="wrap"><div id="app"></div></div><script src="app.js?v=20260922-confirm60"></script><script>
-let step='home',service='',requestId=null,pollTimer=null,currentRequest=null,selectedRating=0,ratingSending=false,ratingCommentDraft='',serviceTiming='now',scheduledDate='',timeFrom='',timeTo='',selectedSlot='',problemMedia=[],addressData={street:'',exterior_number:'',interior_number:'',neighborhood:'',postal_code:'',address_references:''},chatMessages=[];
+let step='home',service='',requestId=null,pollTimer=null,proposalTimer=null,currentRequest=null,selectedRating=0,ratingSending=false,ratingCommentDraft='',serviceTiming='now',scheduledDate='',timeFrom='',timeTo='',selectedSlot='',problemMedia=[],addressData={street:'',exterior_number:'',interior_number:'',neighborhood:'',postal_code:'',address_references:''},chatMessages=[];
 const problemsByService={
 'Plomería':['Fuga de agua','WC / taza','Lavabo o fregadero','Tubería tapada','Baja presión','Otro problema'],
 'Electricidad':['Apagón parcial','Contacto sin corriente','Corto / chispas','Interruptor o apagador','Instalación eléctrica','Otro problema'],
@@ -206,7 +206,7 @@ function proposalSecondsLeft(){
   if(!currentRequest?.accepted_at)return 60;
   return Math.max(0,60-Math.floor((Date.now()-new Date(currentRequest.accepted_at).getTime())/1000));
 }
-function stopProposalTimer(){if(proposalTimer){clearInterval(proposalTimer);proposalTimer=null}}
+function stopProposalTimer(){if(typeof proposalTimer!=='undefined'&&proposalTimer){clearInterval(proposalTimer);proposalTimer=null}}
 function startProposalTimer(){
   stopProposalTimer();
   const tick=async()=>{
