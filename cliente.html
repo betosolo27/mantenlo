@@ -59,7 +59,7 @@
 </style>
 <style>
 .chat-card{margin:16px 0;padding:15px;border:1px solid #e2e9ef;border-radius:20px;background:#fff}.chat-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.chat-head b{display:flex;gap:7px;align-items:center;color:#173650;font-size:13px}.chat-head svg{width:18px;color:#147ac5}.chat-messages{max-height:220px;overflow:auto;display:flex;flex-direction:column;gap:8px}.chat-row{display:flex}.chat-row.mine{justify-content:flex-end}.chat-bubble{max-width:82%;padding:9px 11px;border-radius:15px;background:#f0f4f7;color:#17324c;font-size:12px}.chat-row.mine .chat-bubble{background:#0f2d55;color:#fff}.chat-meta{font-size:9px;opacity:.68;margin-top:4px}.chat-empty{padding:12px;background:#f7f9fb;border-radius:12px;text-align:center;color:#7a8797;font-size:11px}.chat-compose{display:grid;grid-template-columns:1fr 43px;gap:8px;margin-top:10px}.chat-input{min-width:0;border:1px solid #dce5ed;border-radius:14px;padding:11px;font:inherit;font-size:12px}.chat-send{border:0;border-radius:14px;background:#ff7417;color:#fff;display:grid;place-items:center}.chat-send svg{width:18px}
-</style></head><body><header class="top"><div class="brand">MANT<span>ENLO</span></div><nav class="links"><a class="active" href="cliente.html">Cliente</a><a href="socio.html">Socio</a><a href="admin.html">Admin</a></nav></header><div class="wrap"><div id="app"></div></div><script src="app.js?v=20260922-chatscroll1"></script><script>
+</style></head><body><header class="top"><div class="brand">MANT<span>ENLO</span></div><nav class="links"><a class="active" href="cliente.html">Cliente</a><a href="socio.html">Socio</a><a href="admin.html">Admin</a></nav></header><div class="wrap"><div id="app"></div></div><script src="app.js?v=20260922-camera1"></script><script>
 let step='home',service='',requestId=null,pollTimer=null,currentRequest=null,selectedRating=0,ratingSending=false,ratingCommentDraft='',serviceTiming='now',scheduledDate='',timeFrom='',timeTo='',selectedSlot='',problemMedia=[],addressData={street:'',exterior_number:'',interior_number:'',neighborhood:'',postal_code:'',address_references:''},chatMessages=[];
 const problemsByService={
 'Plomería':['Fuga de agua','WC / taza','Lavabo o fregadero','Tubería tapada','Baja presión','Otro problema'],
@@ -120,10 +120,11 @@ if(step==='detail')c=`<div class="phone"><div class="main"><button class="back" 
 <section class="media-upload">
   <div class="media-upload-head"><i data-lucide="images"></i><div><b>Agregar fotos o video</b><span>Opcional · hasta 5 fotos y 1 video corto. Ayuda al profesional a entender mejor el problema.</span></div></div>
   <div class="media-actions">
-    <button type="button" class="media-action" onclick="document.getElementById('problemPhotos').click()"><i data-lucide="camera"></i> Agregar fotos</button>
+    <button type="button" class="media-action" onclick="document.getElementById('problemPhotos').click()"><i data-lucide="camera"></i> Agregar fotos</button><button type="button" class="media-action" onclick="document.getElementById('problemCamera').click()"><i data-lucide="camera"></i> Tomar foto</button>
     <button type="button" class="media-action" onclick="document.getElementById('problemVideo').click()"><i data-lucide="video"></i> Agregar video</button>
   </div>
   <input id="problemPhotos" type="file" accept="image/*" multiple hidden onchange="addProblemPhotos(this.files)">
+<input id="problemCamera" type="file" accept="image/*" capture="environment" hidden onchange="addProblemPhotos(this.files);this.value=''">
   <input id="problemVideo" type="file" accept="video/*" hidden onchange="addProblemVideo(this.files)">
   ${mediaPreviewMarkup()}
 </section>
