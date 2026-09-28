@@ -21,6 +21,11 @@ async function saveServiceMedia(requestId,file,url){
   return rows&&rows[0];
 }
 async function getServiceMedia(requestId){return api('service_media?request_id=eq.'+encodeURIComponent(requestId)+'&select=*&order=created_at.asc')}
+
+async function createWarrantyClaim(requestId,reason,description){const rows=await api('warranty_claims',{method:'POST',headers:{'Prefer':'return=representation'},body:JSON.stringify({request_id:requestId,reason:String(reason||'').trim(),description:String(description||'').trim(),status:'under_review'})});return rows&&rows[0]}
+async function getWarrantyClaims(requestId){return api('warranty_claims?request_id=eq.'+encodeURIComponent(requestId)+'&select=*&order=created_at.desc')}
+async function saveWarrantyClaimMedia(claimId,file,url){const type=file.type.startsWith('video/')?'video':'image';const rows=await api('warranty_claim_media',{method:'POST',headers:{'Prefer':'return=representation'},body:JSON.stringify({claim_id:claimId,media_type:type,file_url:url,file_name:file.name})});return rows&&rows[0]}
+
 async function getServiceMessages(requestId){return api('service_messages?request_id=eq.'+encodeURIComponent(requestId)+'&select=*&order=created_at.asc')}
 async function sendServiceMessage(requestId,senderType,message){const rows=await api('service_messages',{method:'POST',headers:{'Prefer':'return=representation'},body:JSON.stringify({request_id:requestId,sender_type:senderType,message:String(message||'').trim()})});return rows&&rows[0]}
 
